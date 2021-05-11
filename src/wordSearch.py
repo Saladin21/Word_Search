@@ -14,7 +14,9 @@ def readPuzzle(filename):
         puzzle.append(line)
     words = f.readlines()
     for string in words:
-        T.insert(string.strip('\n').upper())
+        s = string.strip('\n').upper()
+        print(s)
+        T.insert(s)
     return (puzzle, T)
 
 def printPuzzle(puzzle, answer):
@@ -27,9 +29,11 @@ def printPuzzle(puzzle, answer):
         print("")
 
 def wordSearch(filename):
+    print("Words: ")
     (puzzle, words) = readPuzzle(filename)
     n = len(puzzle)
     answer = set()
+    print("Word Search Puzzle:")
     printPuzzle(puzzle, answer)
     print("")
     for i in range (len(puzzle)):
@@ -110,8 +114,9 @@ def wordSearch(filename):
                     length = words.search(string)
                     for l in range(length):
                         answer.add((i+l,j-l))
+    print("Answer: ")
     printPuzzle(puzzle, answer)
 
-wordSearch("sports.txt")
+
 
 
